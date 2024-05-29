@@ -149,4 +149,23 @@ print(fruits[2:5])
 fruits = ["apple", "banana", "cherry"]
 print(len(fruits))
 
+#Use the correct syntax to print the first item in the fruits tuple.
+fruits = ("apple", "banana", "cherry")
+print(fruits[0])
+
+#Use the correct syntax to print the number of items in the fruits tuple.
+fruits = ("apple", "banana", "cherry")
+print(len(fruits))
+
+#Use the correct syntax to print the first item in the fruits set.
+fruits = {"apple", "banana", "cherry"}
+for x in fruits:
+    print(x)
+    break
+
+#Use the correct syntax to add "orange" to the fruits set.
+fruits = {"apple", "banana", "cherry"}
+fruits.add("orange")
+
+
 
