@@ -167,5 +167,40 @@ for x in fruits:
 fruits = {"apple", "banana", "cherry"}
 fruits.add("orange")
 
+#Use the correct syntax to print the number of items in the fruits set.
+fruits = ("apple", "banana", "cherry")
+print(len(fruits))
+
+#Use negative indexing to print the last item in the tuple.
+fruits = ("apple", "banana", "cherry")
+print(fruits[-1])
+
+#Use a range of indexes to print the third, fourth, and fifth item in the tuple.
+fruits = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+print(fruits[2:5])
+
+#Check if "apple" is present in the set.
+fruits = {"apple", "banana", "cherry"}
+if "apple" in fruits:
+    print("Yes, apple is a fruit!")
+
+#Use the add method to add "orange" to the fruits set.
+fruits = {"apple", "banana", "cherry"}
+fruits.add("orange")
+
+#Use the correct method to add multiple items (more_fruits) to the fruits set.
+fruits = {"apple", "banana", "cherry"}
+more_fruits = ["orange", "mango", "grapes"]
+fruits.update(more_fruits)
+
+#Use the remove method to remove "banana" from the fruits set.
+fruits = {"apple", "banana", "cherry"}
+fruits.remove("banana")
+
+#Use the discard method to remove "banana" from the fruits set.
+fruits = {"apple", "banana", "cherry"}
+fruits.discard("banana")
+
+
 
 
