@@ -38,14 +38,37 @@ two-pointer technique. The search either terminates
 when we find the key, or the two pointers meet.
 """
 
-def binary_search(nums, key):
-    left_idx, right_idx = 0, len(nums)
-    while right_idx > left_idx:
-        middle_idx = (left_idx + right_idx) // 2
-        if nums[middle_idx] > key:
-            right_idx = middle_idx
-        elif nums[middle_idx] < key:
-            left_idx = middle_idx + 1
-        else:
-            return middle_idx
-    return None
+# def binary_search(nums, key):
+#     left_idx, right_idx = 0, len(nums) - 1
+#     while right_idx >= left_idx:
+#         middle_idx = (left_idx + right_idx) // 2
+#         if nums[middle_idx] > key:
+#             right_idx = middle_idx
+#         elif nums[middle_idx] < key:
+#             left_idx = middle_idx + 1
+#         else:
+#             return middle_idx
+#     return None
+
+#LC 35 - Search Intert Position is a good one to use for iterative binary search
+
+class Solution(object):
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+
+        left, right = 0, len(nums) - 1
+        while right >= left:
+            mid = (left + right) // 2
+            if target == nums[mid]:
+                return mid
+            elif nums[mid] > target:
+                right = mid - 1
+            else:
+                left = mid + 1
+        return left
+        
+#good reference: https://www.youtube.com/watch?v=K-RYzDZkzCI
