@@ -95,3 +95,64 @@ class Solution(object):
 #         return left;
 #     }   
 # }
+
+#LC74. Search a 2D Matrix
+
+class Solution(object):
+    def searchMatrix(self, matrix, target):
+        """
+        :type matrix: List[List[int]]
+        :type target: int
+        :rtype: bool
+        """
+        if not matrix or target is None:
+            return False
+
+        rows, cols = len(matrix), len(matrix[0])
+        low, high = 0, rows * cols - 1
+        
+        while low <= high:
+            mid = (low + high) / 2
+            num = matrix[mid / cols][mid % cols]
+
+            if num == target:
+                return True
+            elif num < target:
+                low = mid + 1
+            else:
+                high = mid - 1
+        
+        return False
+
+# java implementation
+# class Solution {
+#     public boolean searchMatrix(int[][] matrix, int target) {
+#         if (matrix == null || matrix.length == 0) {
+#             // Matrix is empty
+#             return false;
+#         }
+
+
+#         int row = matrix.length;
+#         int cols = matrix[0].length;
+#         int low = 0;
+#         int high = (row * cols) - 1;
+
+#         while(low <= high){
+#             int mid = (low + high) / 2;
+#             int num = matrix[mid / cols][mid % cols];
+
+#             if(num == target){
+#                 return true;
+#             }
+#             else if(num < target){
+#                 low = mid + 1;
+#             }
+#             else{
+#                 high = mid - 1;
+#             }
+            
+#         }
+#         return false;
+#     }
+# }
