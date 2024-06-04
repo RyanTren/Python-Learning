@@ -26,32 +26,10 @@ def merge_sort(nums):
     right_sorted = merge_sort(nums[middle_idx:])
     return merge(left_sorted, right_sorted)
 
+#Runtime
+"""
+Worst case: O(n log n)
+Best case: O(n log n)
+"""
 
-# Quick sort (O(n^2) worse case, O(nlogn) average case, O(logn) space complexity
-
-def partition(nums, left_idx, right_idx):
-    pivot = nums[left_idx]
-    while True:
-        while nums[left_idx] < pivot and left_idx <= right_idx:
-            left_idx += 1
-        while nums[right_idx] > pivot and right_idx >= left_idx:
-            right_idx -= 1
-        if left_idx >= right_idx:
-            return right_idx
-        nums[left_idx], nums[right_idx] = nums[right_idx], nums[left_idx]
-        left_idx += 1
-        right_idx -= 1
-
-
-
-def quick_sort_helper(nums, left_idx, right_idx):
-    if left_idx >= right_idx:
-        return
-    pivot_idx = partition(nums, left_idx, right_idx)
-    if left_idx < pivot_idx - 1:
-        quick_sort_helper(nums, left_idx, pivot_idx)
-    if right_idx > pivot_idx + 1:
-        quick_sort_helper(nums, pivot_idx + 1, right_idx)
-
-def quick_sort(nums):
-    quick_sort_helper(nums, 0, len(nums) - 1)
+#Quick Sort 
