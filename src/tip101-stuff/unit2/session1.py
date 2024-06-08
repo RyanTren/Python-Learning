@@ -71,3 +71,5 @@ print(greater_sum)  # Output should be "values"
 dictionary2 = {100:10, 200:20, 300:30, 400:40, 500:50, 600:60}
 greater_sum = keys_v_values(dictionary2)
 print(greater_sum)  # Output should be "keys"
+
+print(greater_sum)
