@@ -87,3 +87,16 @@ Example Output:
 """
 
 #Problem 4 Solution
+def flip_sign(lst):
+  flipped_lst = []  # Initialize an empty list to hold the flipped values
+  for num in lst:   # Loop through each number in the input list
+      flipped_lst.append(-num)  # Flip the sign of the number and append to the new list
+  return flipped_lst  # Return the new list with flipped signs
+  
+
+lst = [1,-2,-3,4]
+flipped_lst = flip_sign(lst)
+print(flipped_lst)
+
+#Problem 5 Solution
+
