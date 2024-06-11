@@ -99,4 +99,18 @@ flipped_lst = flip_sign(lst)
 print(flipped_lst)
 
 #Problem 5 Solution
+def max_difference(lst):
+  if not lst:
+      return 0  # Handle the case when the list is empty
+  smallest = min(lst)  # Find the smallest value in the list
+  largest = max(lst)   # Find the largest value in the list
+  return largest - smallest  # Return the difference between the largest and smallest values
+
+# Example usage:
+lst = [5, 22, 8, 10, 2]
+max_diff = max_difference(lst)
+print(max_diff)  # Output: 20
+
+
+#Problem 6 Solution
 
