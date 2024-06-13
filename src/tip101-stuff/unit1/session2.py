@@ -158,3 +158,18 @@ def find_divisors(n):
 lst = find_divisors(6)
 print(lst) #Output: [1, 2, 3, 6]
 
+#Problem 10 Solution
+def fizzbuzz(n):
+  for i in range(1, n + 1):
+    if i % 3 == 0:
+      print("Fizz")
+    elif i % 5 == 0:
+      print("Buzz")
+    else:
+      print(i)
+
+fizzbuzz(13) #Output: 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13
+
+#Problem 11 Solution
+
+
