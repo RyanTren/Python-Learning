@@ -179,4 +179,17 @@ lst = [5,1,3,8,2]
 print_indices(lst) #Output: 0, 1, 2, 3, 4
 
 #Problem 12 Solution
+def linear_search(lst, target):
+  for i in range(len(lst)):
+    if lst[i] == target:
+      return i
+  return -1
+
+lst = [1,4,5,2,8]
+position = linear_search(lst,5)
+print(position) #Output: 2
+
+lst = [1,4,5,2,8]
+position = linear_search(lst,10)
+print(position) #Output: -1
 
