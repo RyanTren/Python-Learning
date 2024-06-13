@@ -171,5 +171,12 @@ def fizzbuzz(n):
 fizzbuzz(13) #Output: 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13
 
 #Problem 11 Solution
+def print_indices(lst):
+  for i in range(len(lst)):
+    print(i)
 
+lst = [5,1,3,8,2]
+print_indices(lst) #Output: 0, 1, 2, 3, 4
+
+#Problem 12 Solution
 
