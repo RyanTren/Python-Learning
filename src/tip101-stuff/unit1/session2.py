@@ -124,5 +124,20 @@ numbers = [12,8,2,4,4,10]
 counter = count_less_than(numbers,5)
 print(counter) #Output: 3
 
+#Problem 7 Solution
+def get_evens(lst):
+  new_list = []
+
+  for i in range(len(lst)):
+    if lst[i] % 2 == 0:
+      new_list.append(lst[i])
+  return new_list
+  
+
+lst = [1,2,3,4]
+evens_lst = get_evens(lst)
+print(evens_lst) #Output: [2, 4]
+
+#Problem 8 Solution
 
 
