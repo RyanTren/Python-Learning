@@ -139,5 +139,22 @@ evens_lst = get_evens(lst)
 print(evens_lst) #Output: [2, 4]
 
 #Problem 8 Solution
+def multiples_of_five():
+  for i in range(1, 105):
+    if(i % 5 == 0):
+      print(i)
 
+multiples_of_five() #Output: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100
+
+#Problem 9 Solution
+def find_divisors(n):
+  new_lst = []
+
+  for i in range(1, n + 1):
+    if n % i == 0:
+      new_lst.append(i)
+  return new_lst
+
+lst = find_divisors(6)
+print(lst) #Output: [1, 2, 3, 6]
 
