@@ -1,91 +1,123 @@
+#Problem 1
+def sum_of_number_string(nums):
+  total = 0
+  for num in nums:
+      total += int(num)
+  return total
 
-"""Problem 1"""
-def count_mississippi(limit):
-  for num in range(1, limit):
-    print(f"{num} mississippi")
-    
-count_mississippi(6)
+nums = ["10", "20", "30"]
+sum = sum_of_number_string(nums)
+print(sum)
 
-"""Problem 2"""
-def swap_ends(my_str):
-  return my_str[-1:] + my_str[1:-1] + my_str[:1]
 
-my_str = "boat"
-swapped = swap_ends(my_str)
-print(swapped)
+#Problem 2
+def remove_duplicates(nums):
+  new_lst = []
+  seen = set()
+  for i in nums:
+      if i not in seen:
+          seen.add(i)
+          new_lst.append(i)
+  return new_lst
 
-"""Problem 3"""
-def is_pangram(my_str):
-  alphabet = 'abcdefghjklmnopqrstuvwxyz'
+nums = [1,1,1,2,3,4,4,5,6,6]
+print(remove_duplicates(nums))
 
-  for i in  alphabet:
-    if i not in my_str: 
-      return False
-    return True
-  
-      
-  
-my_str = "the quick brown fox jumps over the lazy dog"
-print(is_pangram(my_str))
 
-str2 = "The dog jumped"
-print(is_pangram(str2))
+#Problem 3
 
-"""Problem 4"""
-def reverse_string(my_str):
-  return my_str[::-1]
-#start, stop, step
+#Understand
+# s = "a-bC-dEf-ghIj"
+# Output: j-Ih-gfE-dCba
 
-my_str = "live"
-print(reverse_string(my_str))
+def reverse_only_letters(s):
+  # return s[::-1]
 
-"""Problem 5"""
-def first_unique_char(my_str):
-  my_dict = {}
+  # Plan
+  # 1) make new list to store letters
+  # 2) loop thru the string if the letters in the string are alphanumeric, add the letters to the empty list
+  # 3) 
 
-  for i in my_str:
-    if i in my_dict:
-      my_dict[i] += 1
+  letters = []
+
+  for char in s:
+    if char.isalpha():
+      letters.append(char)
+
+  result = ""
+  letters_index = len(letters) - 1
+
+  for char in s:
+    if char.isalpha():
+      result += letters[letters_index]
+      letters_index -= 1
     else:
-      my_dict[i] = 1
-  
-  for k, v in enumerate(my_str):
-    if my_dict[v] == 1:
-      return k
-  return -1
+      result += char
+  return result
 
-my_str = "leetcode"
-print(first_unique_char(my_str))
+s = "a-bC-dEf-ghIj"
+reversed_s = reverse_only_letters(s)
+print(reversed_s)
 
-str2 = "loveleetcode"
-print(first_unique_char(str2))
 
-str3 = "aabb"
-print(first_unique_char(str3))
+# Problem 4
+def longest_uniform_substring(s):
+  if not s:
+    return 0
 
-str4 = "blahblahhah"
+  maxlenght = 1
+  current = 1
 
-"""Problem 6"""
-def min_distance(words, word1, word2):
-  index1, index2 = -1, -1
-  min_dist = len(words)  # Use the length of the list as the maximum possible distance
-  for i, word in enumerate(words):
-      if word == word1:
-          index1 = i
-          if index2 != -1:
-              min_dist = min(min_dist, index1 - index2)
-      elif word == word2:
-          index2 = i
-          if index1 != -1:
-              min_dist = min(min_dist, index2 - index1)
-  return min_dist if min_dist != len(words) else -1
+  for i in range(1, len(s)):
+    if s[i] == s[i - 1]:
+      current += 1
+      maxlenght = max(maxlenght, current)
+    else: 
+      current = 1
+  return maxlenght
 
-words = ["the", "quick", "brown", "fox", "jumped", "the"]
-dist1 = min_distance(words, "quick", "jumped")
-dist2 = min_distance(words, "the", "jumped")
-print(dist1)
-print(dist2)
+s1 = "aabbbbCdAA"
+l1 = longest_uniform_substring(s1)
+print(l1)
 
-words2 = ["code", "path", "code", "contribute",  "practice"]
-dist3 = min_distance(words, "code", "practice")
-print(dist3)
+s2 = "abcdef"
+l2 = longest_uniform_substring(s2)
+print(l2)
+
+# Problem 5
+def find_poisoned_duration(time_series, duration):
+  total_duration = 0
+
+  for i in range(len(time_series) -1):
+    # calc the actual poison time between two attacks
+    real_duration = min(time_series[i + 1] - time_series [i] - 1, duration)
+    total_duration += real_duration
+
+  # this adds the last duration of the attack
+  total_duration += duration
+  return total_duration
+
+
+time_series = [1,4,9]
+
+# Plan
+"""
+1: attack
+2: poison
+3: poison
+4: attack, reset to 3 sec duration
+5: poison
+6: poison
+7: poison
+8: poison
+9: attack
+10: poison
+11: poison
+12: poison
+
+"""
+
+damage = find_poisoned_duration(time_series, 3)
+print(damage)
+
+# Example Output: 8
