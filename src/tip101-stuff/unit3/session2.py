@@ -121,3 +121,31 @@ damage = find_poisoned_duration(time_series, 3)
 print(damage)
 
 # Example Output: 8
+
+# Problem 6
+def sum_of_unique_elements(lst1, lst2):
+    count = {}
+    for num in lst1 + lst2:
+        if num in count:
+            count[num] += 1
+        else:
+            count[num] = 1
+    sum_unique = 0
+    for num in lst1:
+        if count[num] == 1:
+            sum_unique += num
+    return sum_unique
+
+lstA = [1, 2 ,3, 4] 
+lstB = [3, 4, 5, 6]
+lstC = [7, 7, 7, 7]
+
+sum1 = sum_of_unique_elements(lstA, lstB)
+print(sum1)
+
+sum2 = sum_of_unique_elements(lstC, lstB)
+print(sum1)
+
+# Output:
+# 3
+# 0
